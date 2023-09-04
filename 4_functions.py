@@ -52,44 +52,6 @@ def generate_final_dict(max_values, max_value_sources):
     return common_dict
 
 
-print('Start of task #2:')
-
-random_number_dict = random.randint(2, 10)
-print(f'Amount of dictionaries: {random_number_dict}\n')
-
-list_of_dicts = generate_list_of_dicts(random_number_dict)
-print(f'list of dictionaries: {list_of_dicts}')
-
-max_values, max_value_sources = generate_max_value_list(list_of_dicts)
-print(f'list of max_values: {max_values}')
-print(f'list of max_value_sources: {max_value_sources}')
-
-final_dict = generate_final_dict(max_values, max_value_sources)
-print(f'final dictionary: {final_dict}')
-
-
-##############################################################################################
-
-
-print('\nStart of task #3:')
-initial_string = """  tHis iz your homeWork, copy these Text to variable.
-
-
-
-
-  You NEED TO normalize it fROM letter CASEs point oF View. also, create one MORE senTENCE witH LAST WoRDS of each existING SENtence and add it to the END OF this Paragraph.
-
-
-
-
-  it iZ misspeLLing here. fix“iZ” with correct “is”, but ONLY when it Iz a mistAKE.
-
-
-
-
-  last iz TO calculate nuMber OF Whitespace characteRS in this Tex. caREFULL, not only Spaces, but ALL whitespaces. I got 87."""
-
-
 def count_of_whitespaces(str):
     return str.count(' ') + str.count('\n')
 
@@ -98,7 +60,8 @@ def lower_string(str):
     return str.lower().replace('\n', ' ')
 
 
-def main_cleanup(list_param):
+def main_cleanup(string_input):
+    list_param = string_input.split()
     last_words = []
     for i in range(len(list_param)):
         if '.' in list_param[i - 1]:
@@ -107,13 +70,54 @@ def main_cleanup(list_param):
             list_param[i] = 'is'
         if '.' in list_param[i]:
             last_words.append(list_param[i].replace('.', ''))
-    last_words[0] = last_words[0].capitalize()
-    return ' '.join(list_param) + ' ' + ' '.join(last_words) + '.'
+    # if last_words:
+    #    last_words[0] = last_words[0].capitalize()
+    #    return ' '.join(list_param) + ' ' + ' '.join(last_words) + '.'
+    #else:
+    return ' '.join(list_param)
 
 
-print(f'Number of whitespace characters: {count_of_whitespaces(initial_string)}')
-lower_string = lower_string(initial_string)
-split_string = lower_string.split()
-print(f'Final string is: {main_cleanup(split_string)}')
+
+if __name__ == "__main__":
+    print('Start of task #2:')
+
+    random_number_dict = random.randint(2, 10)
+    print(f'Amount of dictionaries: {random_number_dict}\n')
+
+    list_of_dicts = generate_list_of_dicts(random_number_dict)
+    print(f'list of dictionaries: {list_of_dicts}')
+
+    max_values, max_value_sources = generate_max_value_list(list_of_dicts)
+    print(f'list of max_values: {max_values}')
+    print(f'list of max_value_sources: {max_value_sources}')
+
+    final_dict = generate_final_dict(max_values, max_value_sources)
+    print(f'final dictionary: {final_dict}')
+
+    ##############################################################################################
+
+    print('\nStart of task #3:')
+    initial_string = """  tHis iz your homeWork, copy these Text to variable.
+    
+    
+    
+    
+      You NEED TO normalize it fROM letter CASEs point oF View. also, create one MORE senTENCE witH LAST WoRDS of each existING SENtence and add it to the END OF this Paragraph.
+    
+    
+    
+    
+      it iZ misspeLLing here. fix“iZ” with correct “is”, but ONLY when it Iz a mistAKE.
+    
+    
+    
+    
+      last iz TO calculate nuMber OF Whitespace characteRS in this Tex. caREFULL, not only Spaces, but ALL whitespaces. I got 87."""
+
+    print(f'Number of whitespace characters: {count_of_whitespaces(initial_string)}')
+    lower_string = lower_string(initial_string)
+    print(f'Final string is: {main_cleanup(lower_string)}')
+
+
 
 
