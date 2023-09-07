@@ -1,0 +1,15 @@
+<posts>
+    <post type='News'>
+        <text>text for news</text>
+        <city>Prague1</city>
+    </post>
+    <post type='Ad'>
+        <text>text for ad</text>
+        <exp_date>2023-09-10</exp_date>
+    </post>
+    <post type='Random thought'>
+        <text>text for my thought</text>
+        <city>Prague1</city>
+        <mood>happy</mood>
+    </post>
+</posts>
